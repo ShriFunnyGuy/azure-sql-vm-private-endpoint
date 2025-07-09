@@ -264,4 +264,3 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' = {
     }
   }
 }
-

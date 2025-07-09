@@ -89,5 +89,10 @@ resource sqlDatabase 'Microsoft.Sql/servers/databases@2021-11-01' = {
     tier: 'Basic'
     capacity: 5        // Database capacity (DTUs)
   }
+  properties: {
+    collation: 'SQL_Latin1_General_CP1_CI_AS'
+    maxSizeBytes: 104857600
+    sampleName: 'AdventureWorksLT' // Sample DB for testing
+  }
 }
 

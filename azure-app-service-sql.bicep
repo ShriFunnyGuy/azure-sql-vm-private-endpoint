@@ -20,13 +20,13 @@
 param location string = resourceGroup().location
 
 @description('Name of the App Service Plan to be created')
-param appServicePlanName string = 'myAppServicePlan'
+param appServicePlanName string = 'myAppServicePlan-${uniqueString(resourceGroup().id)}'
 
 @description('Name of the Web App to be created')
-param webAppName string = 'myWebApp'
+param webAppName string = 'myWebApp-${uniqueString(resourceGroup().id)}'
 
 @description('Name of the SQL Server to be created')
-param sqlServerName string = 'mySqlServer'
+param sqlServerName string = 'mySqlServer-${uniqueString(resourceGroup().id)}'
 
 @description('Name of the SQL Database to be created')
 param sqlDatabaseName string = 'mySqlDatabase'

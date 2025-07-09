@@ -51,13 +51,8 @@ This Bicep template deploys a secure and self-contained environment in Azure tha
 
 ---
 
-## ✅ Prerequisites
-- Azure subscription with resource deployment permissions
-- An existing **Resource Group** for deployment
-
----
-
 ## 📦 Deployment Example
+You can deploy the resources using the Azure CLI:
 
 ```bash
 az deployment group create \
@@ -68,3 +63,45 @@ az deployment group create \
     sqlAdministratorLoginPassword=<YourPasswordHere> \
     vmAdminUserName=vmadmin \
     vmAdminPassword=<YourVmPasswordHere>
+```
+# 🚀 Azure Web App with SQL Database Bicep Template
+
+This Bicep template deploys a complete Azure environment for a web application, including:
+
+- An **App Service Plan** for hosting the Web App with a specified pricing tier.
+- An **Azure Web App** configured to run your web application.
+- An **Azure SQL Server** instance with an administrator login.
+- An **Azure SQL Database** deployed on the SQL Server for application data.
+
+This setup is suitable for applications requiring a managed web hosting environment integrated with a backend SQL database.
+
+---
+
+## 📌 Parameters
+
+| Parameter            | Description                                      | Default              | Required |
+|----------------------|--------------------------------------------------|----------------------|----------|
+| `location`           | Azure region where resources will be deployed    | Resource group location | No     |
+| `appServicePlanName` | Name of the App Service Plan                     | `myAppServicePlan`   | No       |
+| `webAppName`         | Name of the Web App                              | `myWebApp`           | No       |
+| `sqlServerName`      | Name of the Azure SQL Server                     | `mySqlServer`        | No       |
+| `sqlDatabaseName`    | Name of the Azure SQL Database                   | `mySqlDatabase`      | No       |
+| `sqlAdminLogin`      | Administrator login for the SQL Server          | `shrisqladmin`       | No       |
+| `sqlAdminPassword`   | Password for the SQL Server admin user           | *(secure)*           | ✅ Yes   |
+
+---
+
+## 📦 Deployment Example
+
+You can deploy the resources using the Azure CLI:
+
+```bash
+az deployment group create \
+  --resource-group myResourceGroup \
+  --template-file main.bicep \
+  --parameters \
+    sqlAdminLogin=adminuser \
+    sqlAdminPassword=<YourSecureSqlPassword>
+
+---
+

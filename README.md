@@ -1,3 +1,6 @@
+<img width="1201" height="718" alt="image" src="https://github.com/user-attachments/assets/aa36742c-83c4-4e99-9574-20299437fe58" />
+
+
 # 🚀 Azure Deployment: SQL Server with Private Endpoint and Windows VM
 
 This Bicep template deploys a secure and self-contained environment in Azure that includes:
